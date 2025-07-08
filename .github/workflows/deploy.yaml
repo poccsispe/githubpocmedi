@@ -31,11 +31,7 @@ jobs:
     #validate terraform   
     - name: Validate Terraform configuration
       uses: devops-infra/action-terraform-validate@v0.3.1
-    - name: Download Terraform state
-      uses: devgioele/terraform-state-artifact@v4
-      with:
-       passphrase: ${{ secrets.TF_STATE_PASSPHRASE }}
-       download_upload: download
+
    
     # Install the latest version of Terraform CLI 
     - name: Setup Terraform
@@ -55,8 +51,4 @@ jobs:
     - name: Terraform Apply
       run: terraform apply -auto-approve
 
-    - name: Upload Terraform state
-      uses: devgioele/terraform-state-artifact@v4
-      with:
-       passphrase: ${{ secrets.TF_STATE_PASSPHRASE }}
-       download_upload: upload
+ 
