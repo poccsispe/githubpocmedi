@@ -27,6 +27,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: terraform statefile
+      uses: sturlabragason/terraform_state_artifact@v1
+      with:
+        encryptionkey: ${{ secrets.encryptionkey }}  
+
     #validate terraform   
     - name: Validate Terraform configuration
       uses: devops-infra/action-terraform-validate@v0.3.1
