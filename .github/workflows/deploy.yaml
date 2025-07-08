@@ -50,3 +50,10 @@ jobs:
   # On push to "master", build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       run: terraform apply -auto-approve
+
+    - name: Upload Artifact
+      uses: badgerhobbs/terraform-state@v2
+      with:
+          operation: upload
+          location: artifact
+          github_token: ${{ secrets.gh_access_token }}
